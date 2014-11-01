@@ -1,4 +1,4 @@
-=Configs for linux hosts:
--bash
--screen
--other
+## Configs for linux hosts:
+### bash
+### screen
+### other
