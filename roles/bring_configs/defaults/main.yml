@@ -1,18 +1,23 @@
-etcetera_folder_name: "disfinder"
-local_bashrc_file: "~/.bashrc"
+#etcetera_folder_name: "disfinder"
+local_bashrc_file: ".bashrc_test"
 user_home_dir: "~"
-local_bash_profile: ".bash_profile"
+#local_bash_profile: ".bash_profile"
 
 
 include:
+  comments: true
+  common_ubuntu: true
   common: true
   bindings: true
-  comments: false
   color: true
-  ps1: true
   alias:
-    common: false
+    common: true
     develop: true
+  completion: true
+  path:
+    develop: true
+  ps1: true
+
 
 ps1:
   developer: true

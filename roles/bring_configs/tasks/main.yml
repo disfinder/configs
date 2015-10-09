@@ -1,6 +1,6 @@
 ---
-#- include: bashrc.yml
-- include: bash_profile.yml
+- include: bashrc.yml
+#- include: bash_profile.yml
 
 #- include: screenrc.yml
 

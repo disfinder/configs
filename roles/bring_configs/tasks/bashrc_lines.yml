@@ -1,0 +1,41 @@
+---
+
+# ---
+# - name: "Create destination directory"
+#   file: path="/etc/{{etcetera_folder_name}}" state=directory mode=644 owner=root
+#
+# - name: "Bashrc copy to {{etcetera_folder_name}} as {{ansible_ssh_user}}"
+#   #command: echo 22
+#   copy: src=bashrc dest="/etc/{{ etcetera_folder_name }}/bashrc"
+#
+# - name: "bla"
+#   command: echo {{etcetera_folder_name}}
+#   lineinfile: dest={{ local_bashrc_file }} state=present line='bind \'\"\\e[A\"\: history-search-backward\''
+
+  - name: "Put some history optimizations (arrow up)"
+    lineinfile: >
+      dest={{ local_bashrc_file }}
+      create=yes
+      state=present
+      line="bind \'\"\\e[A\": history-search-backward\'"
+
+  - name: "Put some history optimizations (arrow down)"
+    lineinfile: >
+      dest={{ local_bashrc_file }}
+      create=yes
+      state=present
+      line="bind \'\"\\e[B\": history-search-forward\'"
+
+  - name: "Put some history optimizations (history)"
+    lineinfile: >
+      dest={{ local_bashrc_file }}
+      create=yes
+      state=present
+      line="export HISTCONTROL=ignoreboth:erasedups"
+
+  - name: "Put some history optimizations (append history)"
+    lineinfile:
+      dest={{ local_bashrc_file }}
+      create=yes
+      state=present
+      line="shopt -s histappend"
