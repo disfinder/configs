@@ -3,31 +3,35 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 {% endif %}
-
 {% if include.common_ubuntu is defined and include.common_ubuntu %}
 {% if  include.comments is defined and include.comments %}
 # If not running interactively, don't do anything
 {% endif %}
 case $- in
     *i*) ;;
-      *) return;;
+    *) return;;
 esac
+
 {% if  include.comments is defined and include.comments %}
+
 # make less more friendly for non-text input files, see lesspipe(1)
 {% endif %}
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 {% if  include.comments is defined and include.comments %}
 # set variable identifying the chroot you work in (used in the prompt below)
 {% endif %}
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+
 {% if  include.comments is defined and include.comments %}
 # set a fancy prompt (non-color, unless we know we "want" color)
 {% endif %}
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
+
 {% if  include.comments is defined and include.comments %}
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -46,12 +50,14 @@ if [ -n "$force_color_prompt" ]; then
   color_prompt=
     fi
 fi
+
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
+
 {% if  include.comments is defined and include.comments %}
 # If this is an xterm set the title to user@host:dir
 {% endif %}
@@ -62,6 +68,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
 {% endif %}
 
 {% if include.common is defined and include.common %}
@@ -89,9 +96,8 @@ HISTFILESIZE=20000
 # update the values of LINES and COLUMNS.
 {% endif %}
 shopt -s checkwinsize
+
 {% endif %}
-
-
 {#****************************************************************************#}
 
 {% if include.bindings is defined and include.bindings %}
@@ -107,13 +113,11 @@ then
     bind '"\e[A": history-search-backward'
     bind '"\e[B": history-search-forward'
 fi
-  {% if  include.comments is defined and include.comments %}
+{% if  include.comments is defined and include.comments %}
 ############################################
-  {% endif %}
+{% endif %}
+
 {%endif%}
-
-
-
 {#****************************************************************************#}
 
 {% if include.color is defined and include.color %}
@@ -131,9 +135,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
 {% endif %}
 {#****************************************************************************#}
-
 {% if include.alias is defined %}
 {% if  include.comments is defined and include.comments %}
 ############################################
@@ -145,6 +149,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
 {% endif %}
 {% if include.alias.develop is defined and include.alias.develop %}
 alias CD='cd ~/develop'
@@ -154,11 +159,13 @@ alias CDD='cd ~/develop/git/epam/devops/'
 alias CDG='cd  ~/develop/git/github/'
 alias CDM='cd ~/develop/git/marks/devops'
 alias FIXPASTE='printf "\e[?2004l"'
+
 {% if  include.comments is defined and include.comments %}
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 {% endif %}
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 {% if  include.comments is defined and include.comments %}
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -168,11 +175,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
 {% endif %}
 {% endif %}
 {#****************************************************************************#}
-
-
 
 
 {% if include.completion is defined and include.completion %}
@@ -191,9 +197,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 {% endif %}
 {#****************************************************************************#}
-
 
 {% if include.path is defined %}
 {% if  include.comments is defined and include.comments %}
@@ -204,11 +210,10 @@ fi
 {% if include.path.develop is defined and include.path.develop%}
 export PATH="${PATH}:/home/disfinder/opt/maestro-cli/bin/"
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
 {% endif %}
 {% endif %}
 {#****************************************************************************#}
-
-
 {#
 ############################################
 ############### PS1 SECTION #############
