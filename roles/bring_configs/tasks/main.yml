@@ -2,17 +2,3 @@
 - include: bashrc.yml
 
 - include: screenrc.yml
-#- include: bash_profile.yml
-
-#- include: screenrc.yml
-
-
-## 01 crearte common section
-
-## 02 create color PS section
-
-## 03 create alias section
-
-## 04 screate autocomplete section
-
-## paths
