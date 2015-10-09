@@ -1,9 +1,22 @@
 ---
-# include:
-#   common: true
-#   bindings: true
-#   comments: true
-#   color: true
-#   alias:
-#     common: true
-#     develop: true
+include:
+  comments: false
+  common_ubuntu: true
+  common: true
+  bindings: true
+  color: true
+  alias:
+    common: true
+    develop: true
+  completion: true
+  path:
+    develop: true
+  ps1: true
+
+
+ps1:
+  developer: true
+  color_root: true
+  gray_user: false
+  color_user: false
+  color_user_multiline: false
