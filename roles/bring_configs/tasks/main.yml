@@ -1,5 +1,7 @@
 ---
 - include: bashrc.yml
+
+- include: screenrc.yml
 #- include: bash_profile.yml
 
 #- include: screenrc.yml

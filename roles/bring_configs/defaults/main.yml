@@ -1,5 +1,5 @@
 #etcetera_folder_name: "disfinder"
-local_bashrc_file: ".bashrc_test"
+local_bashrc_file: ".bashrc"
 user_home_dir: "~"
 #local_bash_profile: ".bash_profile"
 
@@ -25,3 +25,7 @@ ps1:
   gray_user: false
   color_user: false
   color_user_multiline: true
+
+
+################# Screen
+local_screenrc_file: ".screenrc"

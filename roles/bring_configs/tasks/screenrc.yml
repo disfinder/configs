@@ -1,0 +1,11 @@
+---
+- debug: msg="Screen rcfile is {{ local_screenrc_file }}"
+
+- name: Fill local .bashrc file
+  tags:
+    - screen
+    - screenrc
+  template:
+    src=.screenrc.j2
+    dest={{ user_home_dir }}/{{ local_screenrc_file }}
+    mode=0644
