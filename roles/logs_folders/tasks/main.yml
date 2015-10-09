@@ -1,8 +1,0 @@
----
-- name: Set of folders for each server
-  #debug: msg="{{ ansible_ssh_host }}"
-  setup:
-  register: facts
-
-- name: display facts
-  debug: var=facts

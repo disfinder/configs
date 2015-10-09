@@ -1,14 +1,17 @@
-{% if block_from_ubuntu is defined and block_from_ubuntu %}
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+exit 1
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -21,11 +24,15 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -83,6 +90,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -95,30 +106,19 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#    . /etc/bash_completion
-#fi
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
-{% endif %}
-
-
-{% if block_common is defined and block_common %}
-
-{% endif %}
-
-
-{% if aliases is defined %}
- // cycle though alias
-
-{% endif %}
-
-
-{% if path is defined %}
-export PATH="${PATH}:{{ path}}"
-{% endif %}
+source /etc/disfinder/disfinder_bashrc_appendix
+export PATH="${PATH}:/home/disfinder/opt/maestro-cli/bin/"
+#export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 
 #alias CDA='cd ~/develop/git/epam/devops/ansible'
-/*
 alias CD='cd ~/develop'
 alias CDA='cd ~/develop/git/marks/ecommerce/env/ansible'
 alias CDC='cd ~/develop/git/epam/cheats'
@@ -127,4 +127,3 @@ alias CDG='cd  ~/develop/git/github/'
 alias CDM='cd ~/develop/git/marks/devops'
 
 alias FIXPASTE='printf "\e[?2004l"'
-*/
