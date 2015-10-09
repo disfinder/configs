@@ -1,0 +1,9 @@
+[local_vm]
+127.0.2.20
+127.0.2.21
+127.0.2.22
+
+[local_vm:vars]
+ansible_ssh_user=root
+ansible_ssh_port=2022
+remote_user=root

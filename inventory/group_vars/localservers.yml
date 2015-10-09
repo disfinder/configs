@@ -1,0 +1,9 @@
+---
+# include:
+#   common: true
+#   bindings: true
+#   comments: true
+#   color: true
+#   alias:
+#     common: true
+#     develop: true

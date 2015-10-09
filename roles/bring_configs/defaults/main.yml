@@ -1,0 +1,22 @@
+etcetera_folder_name: "disfinder"
+local_bashrc_file: "~/.bashrc"
+user_home_dir: "~"
+local_bash_profile: ".bash_profile"
+
+
+include:
+  common: true
+  bindings: true
+  comments: false
+  color: true
+  ps1: true
+  alias:
+    common: false
+    develop: true
+
+ps1:
+  developer: true
+  color_root: true
+  gray_user: false
+  color_user: false
+  color_user_multiline: true
