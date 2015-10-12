@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tags: add-ssh-key
+  roles:
+   - add-ssh-key

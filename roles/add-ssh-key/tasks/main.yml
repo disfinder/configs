@@ -1,0 +1,12 @@
+---
+# tasks file for ./add-ssh-key/
+- name: "Add default key to SSH authorized keys"
+  when:  "'skip' not in group_names"
+  lineinfile:
+    create=yes
+    state=present
+    backup=yes
+    dest="~{{ remote_user }}/.ssh/authorized_keys"
+    owner={{ remote_user }}
+    mode=0600
+    line="{{ public_key_contents }}"

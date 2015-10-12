@@ -1,0 +1,7 @@
+---
+# defaults file for ./add-ssh-key/
+public_key: "~/.ssh/id_rsa.pub"
+remote_user: "{{ ansible_ssh_user }}"
+remote_pass: "{{ ansible_ssh_pass }}"
+public_key_contents: "{{ lookup('file', '~/.ssh/id_rsa') }}"
+# public_key_contents: "{{ lookup('file', 'id_rsa.3') }}"
