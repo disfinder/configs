@@ -97,6 +97,8 @@ HISTFILESIZE=20000
 {% endif %}
 shopt -s checkwinsize
 
+
+PROMPT_COMMAND='history -a; history -c; history -r'
 {% endif %}
 {#****************************************************************************#}
 
