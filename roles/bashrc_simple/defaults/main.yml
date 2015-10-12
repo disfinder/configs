@@ -1,0 +1,5 @@
+---
+# defaults file for ./roles/bashrc_simple
+local_bashrc_file: ".bashrc"
+user_home_dir: "~"
+bashrc_lines: "{{ lookup('file', 'bashrc') }}"

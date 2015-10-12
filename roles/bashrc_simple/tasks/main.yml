@@ -1,0 +1,12 @@
+---
+# tasks file for ./roles/bashrc_simple
+- name: "Improve bash"
+  # when:  "'skip' not` in group_names"
+  lineinfile:
+    create=yes
+    state=present
+    backup=yes
+    dest="~{{ remote_user }}/{{ local_bashrc_file }}"
+    owner={{ remote_user }}
+    mode=0644
+    line="{{ bashrc_lines }}"

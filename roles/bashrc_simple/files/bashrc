@@ -1,0 +1,12 @@
+export HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=1000
+HISTFILESIZE=20000
+PROMPT_COMMAND='history -a; history -c; history -r'
+shopt -s histappend
+shopt -s checkwinsize
+if [ -t 1 ]
+then
+    # we have a tty
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi

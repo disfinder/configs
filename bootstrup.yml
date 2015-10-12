@@ -3,3 +3,8 @@
   tags: add-ssh-key
   roles:
    - add-ssh-key
+
+- hosts: all
+  tags: bashrc_simple
+  roles:
+   - bashrc_simple
