@@ -1,6 +1,6 @@
 #etcetera_folder_name: "disfinder"
 local_bashrc_file: ".bashrc"
-user_home_dir: "~"
+user_home_dir: "~{{ ansible_ssh_user }}"
 #local_bash_profile: ".bash_profile"
 
 
