@@ -1,5 +1,9 @@
 ---
-- debug: msg="Bash rcfile is {{ local_bashrc_file }}"
+- name: "Bash rc filename is:"
+  debug:
+    var=local_bashrc_file
+  tags:
+    - debug
 
 - name: Fill local .bashrc file
   tags:
