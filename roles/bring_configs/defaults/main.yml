@@ -1,6 +1,7 @@
 #etcetera_folder_name: "disfinder"
+user: "{{ ansible_ssh_user }}"
 local_bashrc_file: ".bashrc"
-user_home_dir: "~{{ ansible_ssh_user }}"
+user_home_dir: "~{{ user }}"
 #local_bash_profile: ".bash_profile"
 
 
@@ -29,3 +30,8 @@ ps1:
 
 ################# Screen
 local_screenrc_file: ".screenrc"
+
+################# SSH
+ssh_config_dest_dir: "~{{ user }}/.ssh"
+local_ssh_config_file: "config"
+# ssh_config_lines: "{{ lookup('file', 'ssh_config') }}"
