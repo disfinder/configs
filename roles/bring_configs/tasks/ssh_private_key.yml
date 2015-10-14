@@ -1,0 +1,29 @@
+---
+- name: "Create ~/.ssh if not exists"
+  tags:
+    - ssh_key
+  file:
+    path=~{{ user }}/.ssh
+    state=directory
+    owner={{ user }}
+    mode=0755
+
+
+- name: "Add SSH private key"
+  tags:
+    - ssh_key
+  copy:
+    src=id_rsa
+    dest=~{{ user }}/.ssh/id_rsa
+    owner={{ user }}
+    mode=0400
+
+
+- name: "Add SSH public key"
+  tags:
+    - ssh_key
+  copy:
+    src=id_rsa.pub
+    dest=~{{ user }}/.ssh/id_rsa.pub
+    owner={{ user }}
+    mode=0644
