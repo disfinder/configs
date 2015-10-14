@@ -167,6 +167,31 @@ if [ -a /usr/share/autojump/autojump.sh ]; then
 fi
 
 {% if  include.comments is defined and include.comments %}
+# Powerfull GRC tool for color everything!
+{% endif %}
+if [ -f /usr/bin/grc ]; then
+  alias cvs="grc --colour=auto cvs"
+  alias diff="grc --colour=auto diff"
+  alias esperanto="grc --colour=auto esperanto"
+  alias gcc="grc --colour=auto gcc"
+  alias irclog="grc --colour=auto irclog"
+  # alias log="grc --colour=auto log"
+  alias netstat="grc --colour=auto netstat"
+  alias ping="grc --colour=auto ping"
+  alias traceroute="grc --colour=auto traceroute"
+  alias wdiff="grc --colour=auto wdiff"
+  alias diff="grc --colour=auto diff"
+  alias configure="grc --colour=auto configure"
+  alias make="grc --colour=auto make"
+  alias last="grc --colour=auto last"
+  alias mount="grc --colour=auto mount"
+  alias mtr="grc --colour=auto mtr"
+  alias ps="grc --colour=auto ps"
+  alias dig="grc --colour=auto dig"
+  # alias ls="grc --colour=auto ls"
+fi
+
+{% if  include.comments is defined and include.comments %}
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 {% endif %}
