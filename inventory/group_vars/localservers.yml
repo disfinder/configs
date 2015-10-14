@@ -1,6 +1,6 @@
 ---
 include:
-  comments: false
+  comments: true
   common_ubuntu: true
   common: true
   bindings: true
