@@ -1,0 +1,22 @@
+---
+include:
+  comments: false
+  common_ubuntu: true
+  common: true
+  bindings: true
+  color: true
+  alias:
+    common: true
+    develop: false
+  completion: true
+  path:
+    develop: false
+  ps1: true
+
+
+ps1:
+  developer: false
+  color_root: true
+  gray_user: false
+  color_user: false
+  color_user_multiline: true
