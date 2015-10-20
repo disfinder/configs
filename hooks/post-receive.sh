@@ -1,2 +1,2 @@
 #!/bin/sh
-ansible-playbook -i ./inventory/localhost.inventory --list-hosts bring_configs.yml --list-tags --skip-tags=ssh,ssh_key,ssh_config,
+ansible-playbook -i ./inventory/localhost.inventory bring_configs.yml --skip-tags=ssh,ssh_key,ssh_config
