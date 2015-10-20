@@ -3,3 +3,4 @@
 - include: screenrc.yml
 - include: ssh_config.yml
 - include: ssh_private_key.yml
+- include: gitconfig.yml

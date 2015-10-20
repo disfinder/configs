@@ -1,11 +1,11 @@
 ---
-- debug: msg="Screen rcfile is {{ local_screenrc_file }}"
+- debug: msg="Git condig file is {{ local_gitconfig_file }}"
 
-- name: Fill local .bashrc file
+- name: Fill local git condig file
   tags:
-    - screen
-    - screenrc
+    - git
+    - gitconfig
   template:
-    src=.screenrc.j2
-    dest={{ user_home_dir }}/{{ local_screenrc_file }}
+    src=.gitconfig.j2
+    dest={{ user_home_dir }}/{{ local_gitconfig_file }}
     mode=0644
