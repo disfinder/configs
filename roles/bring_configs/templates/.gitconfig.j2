@@ -99,7 +99,10 @@
 
     #open files edited in last commit
     #last = "!gvim $(git show HEAD --format="" --name-only | xargs)"
-    last= "!atom $(git show HEAD --format=short --name-only|xargs|awk '{print $10}')"
+    #last= "!atom $(git show HEAD --format=short --name-only|xargs|awk '{print $10}')"
+
+    # show last commit
+    last="log -1 HEAD"
 
     # initial empty commit
     empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
@@ -115,4 +118,11 @@
     #add bitbucket remote
     ra = "!f() { git remote add $1 https://bitbucket.org/$2.git; }; f"
     #
+
+    ################## another source
+    # http://haacked.com/archive/2014/07/28/github-flow-aliases/
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    wip = commit -am "WIP"
+    #up=!git pull --rebase --prune $@ && git submodule update --init --recursive
+    up="pull --rebase --prune"
 #
