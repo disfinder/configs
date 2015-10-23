@@ -126,3 +126,7 @@
     #up=!git pull --rebase --prune $@ && git submodule update --init --recursive
     up="pull --rebase --prune"
 #
+[pull]
+        default = current
+[push]
+        default = current
