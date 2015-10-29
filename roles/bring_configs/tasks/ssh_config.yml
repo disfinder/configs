@@ -12,14 +12,3 @@
     src=ssh_config
     dest={{ ssh_config_dest_dir }}/{{ local_ssh_config_file }}
     mode=0644
-
-
-# - name: "SSH config filename is:"
-#   lineinfile:
-#     create=yes
-#     state=present
-#     backup=yes
-#     dest={{ ssh_config_dest_dir }}/{{ local_ssh_config_file }}
-#     owner={{ remote_user }}
-#     mode=0644
-#     line="{{ ssh_config_lines }}"
