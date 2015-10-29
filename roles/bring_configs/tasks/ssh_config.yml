@@ -1,7 +1,7 @@
 ---
 - name: "SSH config filename is:"
   debug:
-    var=local_ssh_config_file
+    msg: "Local_ssh_config_file is {{ ssh_config_dest_dir }}/{{ local_ssh_config_file }}"
   tags:
     - debug
 
@@ -12,3 +12,4 @@
     src=ssh_config
     dest={{ ssh_config_dest_dir }}/{{ local_ssh_config_file }}
     mode=0644
+    backup=yes
