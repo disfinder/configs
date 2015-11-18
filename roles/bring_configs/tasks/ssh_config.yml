@@ -4,6 +4,7 @@
     msg: "Local_ssh_config_file is {{ ssh_config_dest_dir }}/{{ local_ssh_config_file }}"
   tags:
     - debug
+    - ssh_config
 
 - name: Fill local ssh config file
   tags:
