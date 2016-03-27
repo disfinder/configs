@@ -1,4 +1,1 @@
-## Configs for linux hosts:
-### bash
-### screen
-### other
+# DEPRECATED and moved to [tools](https://github.com/disfinder/tools) repo
